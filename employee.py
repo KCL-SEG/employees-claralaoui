@@ -22,7 +22,7 @@ class Employee:
             self.string = self.string + f'monthly salary of {self.wage} '
         else:
             self.string = self.string + f'contract of {self.number_of_hours} hours at {self.wage}/hour '
-        return self.string +f'. Their total pay is {self.get_pay()}'
+        return self.string +f'. Their total pay is {self.get_pay()}.'
 
 class CommissionedEmployee(Employee):
     def __init__(self, string, total_pay, name, contract, wage, commission_type, commission_value, number_of_commissions, number_of_hours):
