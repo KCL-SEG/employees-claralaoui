@@ -19,9 +19,9 @@ class Employee:
 
     def __str__(self):
         if self.contract == 'monthly':
-            self.string = self.string + f'monthly salary of {self.wage} '
+            self.string = self.string + f'monthly salary of {self.wage}'
         else:
-            self.string = self.string + f'contract of {self.number_of_hours} hours at {self.wage}/hour '
+            self.string = self.string + f'contract of {self.number_of_hours} hours at {self.wage}/hour'
         return self.string +f'. Their total pay is {self.get_pay()}.'
 
 class CommissionedEmployee(Employee):
@@ -42,9 +42,9 @@ class CommissionedEmployee(Employee):
     def __str__(self):
         super().__str__()
         if self.commission_type == 'fixed':
-            self.string = self.string + f'and receives a bonus commission of {self.commission_value}'
+            self.string = self.string + f' and receives a bonus commission of {self.commission_value}'
         elif self.commission_type == 'variable':
-            self.string = self.string + f'and receives a commission for {self.number_of_commissions} contract(s) at {self.commission_value}/contract'
+            self.string = self.string + f' and receives a commission for {self.number_of_commissions} contract(s) at {self.commission_value}/contract'
         return self.string +f'. Their total pay is {self.get_pay()}.' 
 
 billie = Employee("", 0, 'Billie', 'monthly' , 4000, 0)
