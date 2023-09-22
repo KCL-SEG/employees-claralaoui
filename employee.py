@@ -15,15 +15,14 @@ class Employee:
             self.total_pay = self.wage
         elif self.contract == 'hourly':
             self.total_pay = self.wage * self.number_of_hours
-
         return self.total_pay
 
     def __str__(self):
         if self.contract == 'monthly':
-            self.string = self.string + f'monthly salary of {self.wage}'
+            self.string = self.string + f'monthly salary of {self.wage} '
         else:
-            self.string = string + f'contract of {self.number_of_hours}at {self.wage}/hour.'
-        return self.string +f'Their total pay is {self.total_pay}'
+            self.string = self.string + f'contract of {self.number_of_hours} hours at {self.wage}/hour '
+        return self.string +f'. Their total pay is {self.get_pay()}'
 
 class CommissionedEmployee(Employee):
     def __init__(self, string, total_pay, name, contract, wage, commission_type, commission_value, number_of_commissions, number_of_hours):
@@ -41,12 +40,12 @@ class CommissionedEmployee(Employee):
         return self.total_pay
 
     def __str__(self):
-        super().__str__(self)
-        if self.commission_tyoe == 'fixed':
+        super().__str__()
+        if self.commission_type == 'fixed':
             self.string = self.string + f'and receives a bonus commission of {self.commission_value}'
-        else:
-            self.string = self.string + f'and receives a commission for {self.number_of_commissions} contract(s) at {self.commission_value}/contract.'
-        return self.string +f'Their total pay is {self.total_pay}.' 
+        elif self.commission_type == 'variable':
+            self.string = self.string + f'and receives a commission for {self.number_of_commissions} contract(s) at {self.commission_value}/contract'
+        return self.string +f'. Their total pay is {self.get_pay()}.' 
 
 billie = Employee("", 0, 'Billie', 'monthly' , 4000, 0)
 
@@ -59,5 +58,4 @@ jan = CommissionedEmployee("", 0, 'Jan', 'hourly', 25, 'variable', 220, 3, 150)
 robbie = CommissionedEmployee("", 0, 'Robbie', 'monthly', 2000, 'fixed', 1500, 0, 0)
 
 ariel = CommissionedEmployee("", 0, 'Ariel', 'hourly', 30, 'fixed', 600, 0, 120)
-
 
